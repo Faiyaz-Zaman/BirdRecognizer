@@ -2,8 +2,8 @@ remote_theme: daviddarnes/alembic@main
 plugins:
 - jekyll-remote-theme
 
-title: Cap Recognizer
-description: An image classification API that classifies 20 different types of caps around the woeld
+title: Bird Recognizer
+description: An image classification API that classifies 20 different types of birds around the world
 
 author:
   name: Mohammad Faiyaz Uz Zaman
