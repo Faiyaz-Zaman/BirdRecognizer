@@ -1,7 +1,7 @@
-***
+---
 title: Home
 layout: page
-***
+---
 An image classification model from cleaning, data collection, model training, deployment and API integration.<br/>
 The model can classify 20 different types of birds and they are: <br/>
 1. Sparrows
