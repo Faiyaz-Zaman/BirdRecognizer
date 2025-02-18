@@ -1,0 +1,10 @@
+remote_theme: minimal-mistakes@master
+plugins:
+- jekyll-remote-theme
+
+title: Bird Recognizer
+description: An image classification API that classifies 20 different types of birds
+
+author:
+ name: Mohammad Faiyaz Uz Zaman
+ 

@@ -1,0 +1,58 @@
+***
+title: Bird Recognizer
+layout: page
+***
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Recognizer</title>
+</head>
+<body>
+    <h1>Bird Recognizer</h1>
+    <input id="insert" type="file">
+    <div id="results"></div>
+
+    <script type="module">
+        import { Client } from "https://esm.run/@gradio/client";
+
+        async function loaded(reader) {  
+            try {
+                const imageBlob = await fetch(reader.result).then(res => res.blob());
+
+                // Initialize Gradio client
+                const client = await Client.connect("Faiyaz10/Bird-Recognizer");
+
+                // Call prediction API
+                const result = await client.predict("/predict", { image: imageBlob });
+
+                console.log("API Response:", result); // Debugging
+
+                // Extract prediction label correctly
+                let label;
+                if (Array.isArray(result.data)) {
+                    label = result.data[0]?.label || JSON.stringify(result.data, null, 2);
+                } else if (typeof result.data === 'object') {
+                    label = result.data.label || JSON.stringify(result.data, null, 2);
+                } else {
+                    label = JSON.stringify(result.data, null, 2);
+                }
+
+                results.innerHTML = `<br/> <img src="${reader.result}" width="500"> <p>Prediction: ${label}</p>`;
+            } catch (error) {
+                console.error("Error during API call:", error);
+                results.innerHTML = `<p>Error: ${error.message}</p>`;
+            }
+        }
+
+        function read() {
+            const reader = new FileReader();
+            reader.addEventListener('load', () => loaded(reader));
+            reader.readAsDataURL(insert.files[0]);
+        }
+
+        insert.addEventListener('input', read);
+    </script>
+</body>
+</html>
