@@ -31,6 +31,6 @@ The model can classify 20 different types of birds and they are: <br/>
 **Data Cleaning**: This part took me the highest time. Since I collected data from Google Images, there were many noises. Also, some images contained animation and CGI, which is not my goal right now for this project. I cleaned and updated data using fastai ImageClassifierCleaner. I cleaned the data each time after training or fine-tuning, except for the last time which was the final iteration of the model<br/>
 
 I deployed to model to HuggingFace Spaces Gradio App. The implementation can be found in `documentation` or [here](https://huggingface.co/spaces/Faiyaz10/Bird-Recognizer)<br/>
-<img src="Screenshot 2025-02-18 192607.png" width="800" height="350">
+<img src="app/Screenshot 2025-02-18 192607.png" width="800" height="350">
 # Model Deployment
 I deployed to model to HuggingFace Spaces Gradio App. The implementation can be found in `documentation` or [here](https://huggingface.co/spaces/Faiyaz10/Bird-Recognizer)<br/>
